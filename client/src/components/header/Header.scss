@@ -1,0 +1,135 @@
+@use "../../styles/colors.scss";
+
+@mixin center {
+  display: flex;
+  align-items: center;
+}
+@mixin link {
+  color: colors.$white;
+  text-decoration: none;
+
+  .underline {
+    text-decoration: underline;
+  }
+  :hover {
+    text-decoration: underline;
+  }
+}
+
+li {
+  letter-spacing: 0.02em;
+}
+// reset ul style
+@mixin list {
+  list-style: none;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 116px;
+  background-color: colors.$background;
+  padding: 0 12em;
+
+  &__right {
+    display: flex;
+
+    &__category {
+      @include center;
+    }
+    a {
+      @include link;
+    }
+
+    ul {
+      margin-right: 6.6em;
+    }
+
+    li {
+      padding-left: 32px;
+      font-weight: 400;
+      font-size: 2.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    &__logo-div {
+      display: flex;
+      align-items: center;
+    }
+
+    &-logo {
+      width: 50px;
+      height: 35px;
+      margin-bottom: 5px;
+    }
+
+    &__logo-text {
+      color: colors.$darkblue;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 3.2rem;
+    }
+
+    &__logo-text-white {
+      color: colors.$white;
+    }
+
+    &-ul {
+      display: flex;
+      @include list();
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    &-ul {
+      display: flex;
+      @include list;
+    }
+    a {
+      @include link;
+      :before {
+        content: "/";
+      }
+    }
+    &-li {
+      font-size: 24px;
+    }
+
+    &-input {
+      margin-left: 32px;
+      border-radius: 24px;
+      padding: 1em 0.8em 0.7em 8em;
+      border: none;
+      background: rgba(255, 255, 255, 0.41);
+      box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.25);
+      color: colors.$white;
+
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: colors.$gray;
+        opacity: 1; /* Firefox */
+        font-size: 2.4rem;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+      }
+
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: colors.$gray;
+      }
+
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: colors.$gray;
+      }
+    }
+  }
+  .link-last {
+    :before {
+      content: " ";
+    }
+  }
+}
