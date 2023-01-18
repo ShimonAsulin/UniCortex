@@ -29,7 +29,7 @@ li {
   align-items: center;
   height: 116px;
   background-color: colors.$background;
-  padding: 0 12em;
+  padding: 0 107px 0 128px;
 
   &__right {
     display: flex;
@@ -83,6 +83,7 @@ li {
   &__left {
     display: flex;
     align-items: center;
+    // margin-left: 30px;
 
     &-ul {
       display: flex;
@@ -96,6 +97,7 @@ li {
     }
     &-li {
       font-size: 24px;
+      margin-left: 5px;
     }
 
     &-input {

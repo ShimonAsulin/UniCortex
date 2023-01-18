@@ -1,0 +1,14 @@
+@use "../../styles/colors.scss";
+
+.register {
+    margin-right: 38em;
+    &__header {
+        margin-bottom: 37px;
+        margin-top: 83px;
+        font-size: 3.6rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: colors.$darkblue
+    }
+
+}

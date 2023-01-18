@@ -1,0 +1,14 @@
+@use "../../../styles/colors.scss";
+.cards {
+  &__title {
+      font-size: 3.6rem;
+      color: colors.$darkblue;
+      text-align: center;
+      margin: 63px 0 24px;
+  }
+  &__notfication {
+    position: relative;
+    top: 80px;
+    left: 320px;
+  }
+}

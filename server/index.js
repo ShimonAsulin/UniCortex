@@ -1,12 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
-mongoose.set('strictQuery', false);
+const authRoutes = require("./routes/authRoutes");
+const cookieParser = require("cookie-parser");
+mongoose.set("strictQuery", false);
 const app = express();
 
-app.listen(8000, () => {
-  console.log("server start on PORT 4000");
+app.listen(8000, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Server Started Successfully.");
+  }
 });
 
 mongoose
@@ -15,15 +20,15 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("DB connection Succcessfull");
-  }).catch(err => console.log(err.message));
-
-app.use(
-  cors({
-    origin: ["http://localhost:8000"],
-    method: ["GET", "POST"],
-    credentials: true,
+    console.log("DB Connetion Successfull");
   })
-);
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+app.use(cors({ origin: true, credentials: true }));
+app.use(cookieParser());
+app.get("/", (req, res) => res.send("Server up and running!"));
 
 app.use(express.json());
+app.use("/", authRoutes);
